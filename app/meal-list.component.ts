@@ -32,9 +32,9 @@ export class MealListComponent {
     this.onMealSelect.emit(clickedMeal);
   }
 
-  createMeal(name: string, description: string, id: number, calories: number): void {
+  createMeal(name: string, description: string, calories: number, id: number): void {
     this.mealList.push(
-      new Meal(name, description, this.mealList.length, calories)
+      new Meal(name, description, calories, this.mealList.length)
     );
   }
 }
