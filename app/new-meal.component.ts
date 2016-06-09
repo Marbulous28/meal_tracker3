@@ -8,18 +8,23 @@ import {Meal} from './meal.model';
   template: `
     <div>
         <h3>Create Meal:</h3>
-        <input placeholder="Name" #newName>
-        <button (click)="addMeal(newName)">Add</button>
+        <input placeholder="Name" #name>
+        <input placeholder="Details" #details>
+        <input placeholder="Calories" #calories>
+        <button (click)="addMeal(name, details, calories)">Add</button>
    </div>
   `
 })
 export class NewMealComponent {
-  public onSubmitNewMeal: EventEmitter<String>;
+  public onSubmitNewMeal: EventEmitter<Meal>;
   constructor(){
     this.onSubmitNewMeal = new EventEmitter();
   }
-  addMeal(userDescription: HTMLInputElement){
-    this.onSubmitNewMeal.emit(userDescription.value);
-    userDescription.value = "";
+  addMeal(name: HTMLInputElement, details: HTMLInputElement, calories: HTMLInputElement){
+    var newMeal = new Meal(name.value, details.value, calories.value, 0)
+    this.onSubmitNewMeal.emit(newMeal);
+    name.value = "";
+    details.value ="";
+    calories.value = "";
   }
 }

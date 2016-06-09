@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(){
     this.meals = [
       new Meal("Pasta", "flour egg mixture", 200, 0),
-      new Meal("Fried Chicken", "Tasty fried bird", 1000, 2)
+      new Meal("Fried Chicken", "Tasty fried bird", 1000, 1)
     ];
   }
   mealWasSelected(clickedMeal: Meal): void {
